@@ -129,34 +129,34 @@ const auth = firebase.auth()
 
 //--------------------------------------------------------------------------
 // -- PERSISTENCIA DE DADOS
-auth.setPersistence(firebase.auth.Auth.Persistence.SESSION).then(() => {
-                                                //.LOCAL
-                                                //.NONE     
-    auth.signInWithEmailAndPassword(UserEmail, UserPassword)
-    .then(loggedUser => {
-        console.log(auth.currentUser)
-    }).catch(error => {
-        console.log(error)
-    })
-}).catch(error => {
-    console.log(error)
-})
+// auth.setPersistence(firebase.auth.Auth.Persistence.SESSION).then(() => {
+//                                                 //.LOCAL
+//                                                 //.NONE     
+//     auth.signInWithEmailAndPassword(UserEmail, UserPassword)
+//     .then(loggedUser => {
+//         console.log(auth.currentUser)
+//     }).catch(error => {
+//         console.log(error)
+//     })
+// }).catch(error => {
+//     console.log(error)
+// })
 
-auth.onAuthStateChanged(user => {
-    if(user) {
-        console.log(user)
-    } else {
-        console.log("ninguém logado!")
-    }
-})
+// auth.onAuthStateChanged(user => {
+//     if(user) {
+//         console.log(user)
+//     } else {
+//         console.log("ninguém logado!")
+//     }
+// })
 
-function logout() {
-    auth.signOut().then(()=> {
-        console.log("usuario foi deslogado.")
-    }).catch(error=> {
-        console.log(error)
-    })
-}
+// function logout() {
+//     auth.signOut().then(()=> {
+//         console.log("usuario foi deslogado.")
+//     }).catch(error=> {
+//         console.log(error)
+//     })
+// }
 
 // setTimeout(logout, 2000)
 //--------------------------------------------------------------------------
