@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>mais referências</title>
+</head>
+<body>
+
+
+    <input type="file" id="fileInput">
+
+
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase.js"></script>
+    <script>
+
+        const firebaseConfig = {
+        apiKey: "AIzaSyB7bv9XXyIc49eB2d_KZbEi6F-DRsaI9yQ",
+        authDomain: "devweb-ced87.firebaseapp.com",
+        projectId: "devweb-ced87",
+        storageBucket: "devweb-ced87.appspot.com",
+        messagingSenderId: "554141802643",
+        appId: "1:554141802643:web:1f09ce5f023a91ce72ed66",
+        measurementId: "G-6LMJ2HLXDF"
+        };
+
+        firebase.initializeApp(firebaseConfig)
+        const storage = firebase.storage()
+        const storageRef = storage.ref("/images")        
+        const fileInput = document.getElementById("fileInput")
+
+        fileInput.addEventListener("change", (e) => {
+            const file = e.target.files[0]
+            storageRef.child(file.name).put(file).then(snapshot => {
+            console.log(snapshot)
+            })
+        }) 
+
+        
+
+    </script>
+</body>
+</html>
